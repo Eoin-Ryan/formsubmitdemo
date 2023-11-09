@@ -1,0 +1,51 @@
+<!DOCTYPRE html>
+<html lang="en">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Contact Form</title>
+    <link rel="stylesheet" href="styles.css">
+    </head>
+
+    
+<body>
+    <div class="form">
+        <form method="post">
+            <input type="text" placeholder="Name" id="name" autocomplete="off">
+            <input type="email" placeholder="Email" id="email" autocomplete="off">
+            <input type="text" placeholder="Subject" id="subject" autocomplete="off">
+            <textarea id="message" placeholder="Message" cols="30" rows="10"></textarea>
+            <button id="btn">Send</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', function(e){
+            e.preventDefault()
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var subject = document.getElementById('subject').value;
+            var message = document.getElementById('message').value;
+            var body = 'Name: ' +name + '<br/> Email: ' +email + '<br/>Subject: '+subject + '<br/>Message: '+message;
+            
+                Email.send({
+            SecureToken : "aebdcc45-2375-49db-863c-70dbac5d7016",
+            To : 'clarinwebsolutions@gmail.com',
+            From : "clarinwebsolutions@gmail.com",
+            Subject : "This is the subject",
+            Body : "And this is the body"
+        }).then(
+          message => alert(message)
+        );
+            console.log('test');
+        })
+    </script>
+    </body>
+</html>
+
+<!--A19E2A1FE88D3FC295D0AFD509F92AF6D895
+
+7815438b-d6de-437c-9acd-290843f88e1b-->
